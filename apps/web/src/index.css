@@ -1,3 +1,81 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body,
+html {
+    height: 100vh;
+}
+
+.animatePath {
+    stroke-dasharray: 715;
+    stroke-dashoffset: 0;
+    fill: #ffffffff;
+    animation: dash .6s linear;
+}
+
+.dropText {
+    transform: translateY(-50%);
+    opacity: 1;
+    animation: drop .8s ease-in;
+}
+
+@keyframes drop {
+    0% {
+        transform: translateY(-150%);
+        opacity: 0;
+    }
+    60% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes dash {
+    0% {
+        stroke-dashoffset: 715;
+        fill: #ffffff00;
+    }
+    60% {
+        fill: #ffffff00;
+    }
+    75% {
+        stroke-dashoffset: 0;
+    }
+    100% {
+        fill: #ffffffff;
+    }
+}
+
+.flag {
+    position: relative;
+}
+
+.flag::after {
+    content: "";
+    display: block;
+    background: currentColor;
+    height: 1rem;
+    aspect-ratio: 1/1;
+    position: absolute;
+    right: -0.5rem;
+    rotate: 45deg
+}
+
+
+.connect {
+    position: relative;
+}
+
+.connect::after {
+    content: "";
+    display: block;
+    background: currentColor;
+    width: 1px;
+    height: 1.3rem;
+    position: absolute;
+    left: 0.46rem;
+    bottom: -1rem;
+}
